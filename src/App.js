@@ -2,28 +2,30 @@ import React from "react";
 import SignIn from "./SignIn";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
+import {Container, Row, Col} from "react-bootstrap";
 
 const homePage = () => {
   return (
-    <div className="container">
-       <div className="row">
-          <div className="col">
-            <h1 className="display-1 text-center mt-5">Home Page</h1>
-          </div>
-       </div>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+        <h1 className="display-1 text-center mt-5">Home Page</h1>
+        </Col>
+      </Row>
+    </Container>
+       
   )
 };
 
 const signUp = () => {
   return (
-    <div className="container">
-       <div className="row">
-          <div className="col">
-             <h1 className="display-1 text-center mt-5">Sign Up</h1>
-          </div>
-       </div>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+        <h1 className="display-1 text-center mt-5">Sign Up</h1>
+        </Col>
+      </Row>
+    </Container>
   )
 };
 

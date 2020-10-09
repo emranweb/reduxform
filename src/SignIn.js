@@ -1,5 +1,7 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import createUser from "./action/createUser";
+import { connect } from "react-redux";
 
 class SignIn extends React.Component {
   errorMessage = (meta) => {
@@ -29,7 +31,7 @@ class SignIn extends React.Component {
   };
 
   formSubmit = (value) => {
-    console.log(value);
+    this.props.createUser(value);
   };
 
   render() {
@@ -39,7 +41,10 @@ class SignIn extends React.Component {
           <div className="col-md-6 offset-md-3">
             <div className="sing-in-wrapper mt-5">
               <h1>Sign In</h1>
-              <form className="mt-4" onSubmit={this.props.handleSubmit(this.formSubmit)}>
+              <form
+                className="mt-4"
+                onSubmit={this.props.handleSubmit(this.formSubmit)}
+              >
                 <Field
                   type="email"
                   name="email"
@@ -79,7 +84,11 @@ const validate = (val) => {
   return error;
 };
 
-export default reduxForm({
+const formWrapper = reduxForm({
   form: "signin",
   validate,
 })(SignIn);
+
+
+
+export default connect(null, { createUser })(formWrapper);
